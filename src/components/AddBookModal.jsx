@@ -16,7 +16,7 @@ const AddBookModal = ({ isOpen, onClose, onBookAdded }) => {
       const newBook = { title, author, category };
       const response = await createBook(newBook);
       onBookAdded(response.data);
-      setTitle(''); setAuthor(''); setCategory(''); // Formu temizle
+      setTitle(''); setAuthor(''); setCategory('');
       onClose();
     } catch (err) {
       setError('Kitap eklenirken bir hata oluştu. Lütfen giriş yaptığınızdan emin olun.');
@@ -28,8 +28,8 @@ const AddBookModal = ({ isOpen, onClose, onBookAdded }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
-      <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-md m-4">
+    <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50" onClick={onClose}>
+      <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-md m-4" onClick={(e) => e.stopPropagation()}>
         <h2 className="text-2xl font-bold mb-6">Yeni Kitap Ekle</h2>
         <form onSubmit={handleSubmit}>
           {error && <p className="text-red-500 mb-4">{error}</p>}

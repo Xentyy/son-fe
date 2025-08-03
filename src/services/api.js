@@ -14,8 +14,6 @@ export const createBook = (bookData) => apiClient.post('/books/', bookData);
 // Yorumlar
 export const getCommentsForBook = (bookId) => apiClient.get(`/books/${bookId}/comments/`);
 export const createCommentForBook = (bookId, commentData) => {
-  // Not: Bu fonksiyon çağrılmadan önce token'ın axios header'larına eklenmiş olması gerekir.
-  // AuthContext bunu bizim için yapıyor.
   return apiClient.post(`/books/${bookId}/comments/`, commentData);
 };
 

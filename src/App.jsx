@@ -7,7 +7,6 @@ import RegisterPage from './pages/RegisterPage';
 
 function App() {
   return (
-    // Bu dış sarmalayıcıyı kaldırıyoruz, çünkü her sayfa kendi arka planını yönetecek.
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/books/:bookId" element={<BookDetailPage />} />
